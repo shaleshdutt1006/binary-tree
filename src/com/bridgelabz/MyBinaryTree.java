@@ -4,6 +4,7 @@ public class MyBinaryTree<K extends Comparable<K>> {
     private INode<K> root;
 
     public void add(K key) {
+
         this.root = this.addRecursively(root, key);
     }
 
@@ -28,8 +29,41 @@ public class MyBinaryTree<K extends Comparable<K>> {
         return current == null ? 0 : 1 + this.getSizeRecursively(current.left) + this.getSizeRecursively(current.right);
     }
 
+    public void search(K value) {
+        int counter = 0;
+        INode<K> temp = root;
+        if (temp != null) {
+            while (temp.key.compareTo(value) < 0) {
+
+                temp = temp.right;
+
+            }
+            if (temp.key == value) {
+                counter++;
+            }
+            if (root.key == value)
+                counter++;
+            while (temp.key.compareTo(value) > 0) {
+
+                temp = temp.left;
+
+            }
+            if (temp.key == value) {
+                counter++;
+            }
+            if (counter > 0) {
+                System.out.println("Element " + value + " is present");
+            } else {
+                System.out.println("Element " + value + " is not present");
+            }
+        }
+    }
+
+
     public void print() {
+
         printRec(root);
+
     }
 
     void printRec(INode root) {

@@ -17,9 +17,12 @@ public class BstMain {
         myBinaryTree.add(65);
         myBinaryTree.add(63);
         myBinaryTree.add(67);
-        myBinaryTree.print();
 
         int size = myBinaryTree.getSize();
-        System.out.println("Size of The Binary Tree is " + size);
+        System.out.println("Size of binary Tree is " + size);
+
+        myBinaryTree.search(95);
+        myBinaryTree.search(30);
+        myBinaryTree.search(15);
     }
 }
