@@ -20,6 +20,14 @@ public class MyBinaryTree<K extends Comparable<K>> {
         return current;
     }
 
+    public int getSize() {
+        return this.getSizeRecursively(root);
+    }
+
+    private int getSizeRecursively(INode<K> current) {
+        return current == null ? 0 : 1 + this.getSizeRecursively(current.left) + this.getSizeRecursively(current.right);
+    }
+
     public void print() {
         printRec(root);
     }
@@ -32,8 +40,16 @@ public class MyBinaryTree<K extends Comparable<K>> {
         }
     }
 
+    @Override
+    public String toString() {
+        return "MyBinaryTree [root=" + root + ", getSize()=" + getSize() + ", getClass()=" + getClass() + ", hashCode()="
+                + hashCode() + ", toString()=" + super.toString() + "]";
+    }
 
 }
+
+
+
 
 
 
